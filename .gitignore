@@ -1,12 +1,5 @@
-_site/
-.sass-cache/
-.jekyll-cache/
+_site
+.sass-cache
+.jekyll-cache
 .jekyll-metadata
-
-vendor/
-.bundle/
-Gemfile.lock
-
-.DS_Store
-.vscode/
-.env
+vendor
