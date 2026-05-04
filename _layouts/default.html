@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Courier</title>
+    <link rel="stylesheet" href="assets/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>**Binary Courier**</h1>
+            <nav>
+                <ul>
+                    <li><a href="/manifesto">manifesto</a></li>
+                    <li><a href="/archive">archive</a></li>
+                    <li><a href="/search">search</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="binary-divider" id="binary"></div>
+    <!-- Main Content -->
+    <main class="container">
+        <section>
+            <h2>Welcome</h2>
+            <p>This is your starting point.</p>
+        </section>
+
+        <section>
+            <h2>Latest Work</h2>
+            <p>Add your projects/blog posts here.</p>
+        </section>
+    </main>
+<pre>
+                                                                                                  ,---,                                                         
+                                                                                               ,`--.' |                                                         
+  .--.--.     ,---,                                                                   ,---,    |   :  :                                                         
+ /  /    '. ,--.' |                                                                 .'  .' `\  |   |  '                                                         
+|  :  /`. / |  |  :      __  ,-.                                                  ,---.'     \ '   :  |           ,---.           ,--,        ,----,            
+;  |  |--`  :  :  :    ,' ,'/ /|              .---.                               |   |  .`\  |;   |.'.--.--.    '   ,'\        ,'_ /|      .'   .`|            
+|  :  ;_    :  |  |,--.'  | |' | ,--.--.    /.  ./|      .--,   ,--.--.           :   : |  '  |'---' /  /    '  /   /   |  .--. |  | :   .'   .'  .' ,--.--.    
+ \  \    `. |  :  '   ||  |   ,'/       \ .-' . ' |    /_ ./|  /       \          |   ' '  ;  :     |  :  /`./ .   ; ,. :,'_ /| :  . | ,---, '   ./ /       \   
+  `----.   \|  |   /' :'  :  / .--.  .-. /___/ \: | , ' , ' : .--.  .-. |         '   | ;  .  |     |  :  ;_   '   | |: :|  ' | |  . . ;   | .'  / .--.  .-. |  
+  __ \  \  |'  :  | | ||  | '   \__\/: . .   \  ' ./___/ \: |  \__\/: . .         |   | :  |  '      \  \    `.'   | .; :|  | ' |  | | `---' /  ;--,\__\/: . .  
+ /  /`--'  /|  |  ' | :;  : |   ," .--.; |\   \   ' .  \  ' |  ," .--.; |         '   : | /  ;        `----.   \   :    |:  | : ;  ; |   /  /  / .`|," .--.; |  
+'--'.     / |  :  :_:,'|  , ;  /  /  ,.  | \   \     \  ;   : /  /  ,.  |         |   | '` ,/        /  /`--'  /\   \  / '  :  `--'   \./__;     .'/  /  ,.  |  
+  `--'---'  |  | ,'     ---'  ;  :   .'   \ \   \ |   \  \  ;;  :   .'   \        ;   :  .'         '--'.     /  `----'  :  ,      .-./;   |  .'  ;  :   .'   \ 
+            `--''             |  ,     .-./  '---"     :  \  \  ,     .-./        |   ,.'             `--'---'            `--`----'    `---'      |  ,     .-./ 
+                               `--`---'                 \  ' ;`--`---'            '---'                                                            `--`---'     
+                                                         `--`                                                                                                                                                                                                             
+</pre>
+{% include footer.html %}
+</body>
+
+<script>
+const text = "Binary Courier";
+
+const binary = text
+  .split('')
+  .map(c => c.charCodeAt(0).toString(2).padStart(8, '0'))
+  .join(' ');
+
+function renderBinary() {
+  const container = document.getElementById("binary");
+
+  // reset content
+  container.innerText = binary;
+
+  // keep adding until it fills width
+  while (container.scrollWidth <= container.clientWidth) {
+    container.innerText += " " + binary;
+  }
+}
+
+// run on load
+renderBinary();
+
+// update on resize
+window.addEventListener("resize", renderBinary);
+</script>
+
+</html>
